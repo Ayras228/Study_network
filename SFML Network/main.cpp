@@ -10,7 +10,9 @@
 int main()
 {
 	sf::TcpSocket socket;
-	sf::IpAddress ip = sf::IpAddress::getLocalAddress();
+	//sf::IpAddress ip = "192.168.3.8";notebook
+	sf::IpAddress ip = "192.168.24.248";//aleksey
+	//sf::IpAddress ip = sf::IpAddress::getLocalAddress();
 	std::cout << "local: " << ip << "\n";
 	std::cout <<"public: " << sf::IpAddress::getPublicAddress() << "\n";
 	char type;
@@ -29,7 +31,7 @@ int main()
 	}
 	else if (type == 'c')
 	{
-		name = "client\n";
+		name = "client ";
 		if (socket.connect(ip, 2000) != sf::Socket::Done)
 		{
 			std::cout << "Error!\n";
