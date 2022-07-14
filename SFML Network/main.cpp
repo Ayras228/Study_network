@@ -11,14 +11,17 @@ int main()
 {
 	sf::TcpSocket socket;
 	sf::IpAddress ip = sf::IpAddress::getLocalAddress();
-	std::cout << ip << "\n";
+	std::cout << "local: " << ip << "\n";
+	std::cout <<"public: " << sf::IpAddress::getPublicAddress() << "\n";
 	char type;
 	std::cout << "Enter tyoe commcring: [c] - client, [s]-server\n";
 	std::cin >> type;
+	std::string name;
 	if (type=='s')
 	{
 		sf::TcpListener listner;
 		listner.listen(2000);
+		name = "server\n";
 		if (listner.accept(socket) != sf::Socket::Done)
 		{
 			std::cout << "Error!\n";
@@ -26,17 +29,19 @@ int main()
 	}
 	else if (type == 'c')
 	{
+		name = "client\n";
 		if (socket.connect(ip, 2000) != sf::Socket::Done)
 		{
 			std::cout << "Error!\n";
 		}
 	}
-	std::string name;
-	std::cout << "Enter your name \n";
-	std::cin >> name;
+	//std::string name;
+	//std::cout << "Enter your name \n";
+	//std::cin >> name;
 	socket.setBlocking(false);
 	std::string message = "";
 	sf::Packet packet;
+	bool stop = true;
 	while (true)
 	{
 		if (GetAsyncKeyState(VK_ESCAPE))
@@ -55,8 +60,9 @@ int main()
 			std::string nameRec;
 			std::string messageRec;
 
-			packet>>nameRec>>messageRec;
-			std::cout<<nameRec<<":"<<message<<"\n";
+			packet>>nameRec>> messageRec;
+			std::cout<<nameRec<<":"<< messageRec <<"\n";
+
 		}
 	}
 }
