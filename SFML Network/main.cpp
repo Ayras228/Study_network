@@ -4,8 +4,44 @@
 #include<Windows.h>
 #include <chrono>
 #include <thread>
+#include<mutex>
+void cin_message(sf::Packet &packet, sf::TcpSocket &socket, std::string message, std::string name)
+{
 
+	std::cin >> message;
+	
+	if (message != "")
+	{
+		std::mutex mtx;
+		mtx.lock();
+		packet.clear();
+		packet << name << message;
+		socket.send(packet);
+		message = "";
+		mtx.unlock();
+	}
+}
+void cout_message(sf::Packet packet, sf::TcpSocket &socket, std::string message, std::string name)
+{
+	if (socket.receive(packet) == sf::Socket::Done)
+	{
+		std::mutex mtx;
+		//socket.setBlocking(false);
+		std::string nameRec;
+		std::string messageRec;
 
+		mtx.lock();
+		packet >> nameRec >> messageRec;
+		std::cout << nameRec << ":" << messageRec << "\n";
+		mtx.unlock();
+	}
+}
+
+void endPAcket(sf::Packet& packet)
+{
+	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	std::cout << packet.endOfPacket() << std::endl;
+}
 int main()
 {
 	sf::TcpSocket socket;
@@ -33,7 +69,8 @@ int main()
 	{
 		name = "client ";
 		std::cout << "connect to ip" << std::endl;
-		std::cin >> ip; 
+		//std::cin >> ip; 
+		ip = "192.168.3.6";
 		if (socket.connect(ip, 5000) != sf::Socket::Done)
 		{
 			std::cout << "Error!\n";
@@ -55,28 +92,15 @@ int main()
 	std::string message = "";
 	sf::Packet packet;
 	std::cout << "Enter message\n";
+
 	while (true)
 	{
-
-		std::cin >> message;
 		
-		if (message!="")
-		{
-			packet.clear();
-			packet << name << message;
-			socket.send(packet);
-			message = "";
-			//socket.setBlocking(true);
-		}
-		if (socket.receive(packet)==sf::Socket::Done)
-		{
-			//socket.setBlocking(false);
-			std::string nameRec;
-			std::string messageRec;
-
-			packet>>nameRec>> messageRec;
-			std::cout<<nameRec<<":"<< messageRec <<"\n";
-
-		}
+		std::thread h1(cin_message, std::ref(packet), std::ref(socket), message, name);
+		//endPAcket(std::ref(packet));
+		std::thread h2(cout_message, std::move(packet), std::ref(socket), message, name);
+		h1.detach();
+		h2.detach();
 	}
+	
 }
