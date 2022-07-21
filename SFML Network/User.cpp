@@ -59,13 +59,11 @@ void User::run_message()
 	h1.join();
 	h2.join();
 }
- void User::connect(sf::IpAddress connect_ip)
+bool User::connect()
 {
+	return false;
 }
 
- void User::connect()
- {
- }
 
 
 
@@ -73,6 +71,14 @@ void User::run_message()
 void User::set_name(std::string name)
 {
 	this->name = name;
+}
+sf::IpAddress const User::get_connect_ip()
+{
+	return connect_ip;
+}
+void User::set_connect_ip(sf::IpAddress connect_ip)
+{
+	this->connect_ip = connect_ip;
 }
 std::string const User::get_name()
 {

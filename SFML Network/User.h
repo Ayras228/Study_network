@@ -14,9 +14,10 @@ public:
 	void cin_message();
 	void cout_message();
 	void run_message();
-	virtual void connect(sf::IpAddress connect_ip);
-	virtual void connect();
+	virtual bool connect();
 	void set_name(std::string name);
+	sf::IpAddress const get_connect_ip();
+	void set_connect_ip(sf::IpAddress connect_ip);
 	std::string const get_name();
 	std::unique_ptr<sf::TcpSocket> const& get_ptr_socket();
 
