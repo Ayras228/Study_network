@@ -1,3 +1,2 @@
-﻿  pch.cpp
-  Messanger_test.cpp
+﻿  Messanger_test.cpp
 d:\universe\c++\study_network\sfml network\user.h(2): fatal error C1083: Не удается открыть файл включение: SFML\Network.hpp: No such file or directory,

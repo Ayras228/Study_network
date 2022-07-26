@@ -1,6 +1,12 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include"..\SFML Network\User.h"
+#include"..\SFML Network\User.cpp"
+#include"..\SFML Network\Client.h"
+#include"..\SFML Network\Client.cpp"
+#include"..\SFML Network\Server.h"
+#include"..\SFML Network\Server.cpp"
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Messangertest
