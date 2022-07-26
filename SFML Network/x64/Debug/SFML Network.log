@@ -1,3 +1,5 @@
-﻿  grafic_tetris.cpp
-d:\universe\c++\study_network\sfml network\grafic_tetris.cpp(67): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+﻿  console_messanger.cpp
+  grafic_tetris.cpp
+  Создание кода...
+  LINK : не найден или не выполнена сборка D:\universe\C++\Study_network\SFML Network\x64\Debug\SFML Network.exe при последней инкрементной компоновке; выполняется полная компоновка
   SFML Network.vcxproj -> D:\universe\C++\Study_network\SFML Network\x64\Debug\SFML Network.exe
