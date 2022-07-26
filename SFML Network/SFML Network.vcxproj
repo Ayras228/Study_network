@@ -144,7 +144,6 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="console_messanger.cpp" />
     <ClCompile Include="Server.cpp" />
-    <ClCompile Include="SFML_graphics.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>

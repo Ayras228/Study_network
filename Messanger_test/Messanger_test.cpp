@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-
+#include"..\SFML Network\User.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Messangertest
@@ -11,11 +11,10 @@ namespace Messangertest
 		
 		TEST_METHOD(TestMethod1)
 		{
-			Assert::IsTrue(1 == 1);
-		}
-		TEST_METHOD(TestMethod2)
-		{
-			Assert::IsTrue(1 == 2);
+			User usr;
+			std::string name = "name";
+			usr.set_name(name);
+			Assert::IsTrue(usr.get_name()==name);
 		}
 	};
 }

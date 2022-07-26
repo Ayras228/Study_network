@@ -18,9 +18,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SFML_graphics.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
     <ClCompile Include="console_messanger.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>

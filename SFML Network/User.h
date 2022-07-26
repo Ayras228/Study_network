@@ -1,8 +1,7 @@
 #pragma once
-#include<SFML/Network.hpp>
+#include<SFML\Network.hpp>
 #include<iostream>
 #include<string>
-#include<Windows.h>
 #include<thread>
 #include<mutex>
 
