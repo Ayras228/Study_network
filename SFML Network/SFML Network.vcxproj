@@ -145,6 +145,8 @@
     <ClCompile Include="console_messanger.cpp" />
     <ClCompile Include="Example_grafics_figure.cpp" />
     <ClCompile Include="Example_grafics_point.cpp" />
+    <ClCompile Include="Example_sprite.cpp" />
+    <ClCompile Include="grafic_tetris.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="SFML_graphics.cpp" />
     <ClCompile Include="User.cpp" />

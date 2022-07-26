@@ -1,2 +1,3 @@
-﻿  SFML_graphics.cpp
+﻿  grafic_tetris.cpp
+d:\universe\c++\study_network\sfml network\grafic_tetris.cpp(67): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   SFML Network.vcxproj -> D:\universe\C++\Study_network\SFML Network\x64\Debug\SFML Network.exe
